@@ -1,0 +1,277 @@
+{
+  "users": [
+    {
+      "id": "gabo",
+      "label": "Gabo",
+      "short": "G",
+      "age": 45,
+      "height": 173,
+      "startWeight": 115,
+      "goalCalories": 2200,
+      "waterTargetLiters": 2.7,
+      "activities": ["gym", "walk", "padel", "swim"]
+    },
+    {
+      "id": "kathy",
+      "label": "Katherine",
+      "short": "K",
+      "age": 47,
+      "height": 149,
+      "startWeight": 61,
+      "goalCalories": 1800,
+      "waterTargetLiters": 2.2,
+      "activities": ["gym", "walk", "run", "dance"]
+    }
+  ],
+
+  "menuExamples": [
+    {
+      "title": "Desayuno alto en proteína",
+      "text": "Omelette de 3 huevos, espinaca y queso bajo grasa + 1 fruta + 1 tostada integral."
+    },
+    {
+      "title": "Almuerzo Gabo",
+      "text": "Pollo a la plancha, 1 taza de arroz y vegetales salteados."
+    },
+    {
+      "title": "Almuerzo Katherine",
+      "text": "Pavo + ensalada grande + 1/3 taza de arroz."
+    },
+    {
+      "title": "Cena ligera",
+      "text": "Pescado blanco + vegetales al vapor."
+    },
+    {
+      "title": "Snack del mes",
+      "text": "Yogurt griego natural con almendras."
+    }
+  ],
+
+  "trainings": {
+    "movilidad": [
+      "Movilidad de cuello — 10 círculos por lado",
+      "Hombros círculos amplios — 15 repeticiones",
+      "Movilidad torácica — 12 repeticiones",
+      "Movilidad de cadera — 12 por lado",
+      "Movilidad de rodilla — 15 repeticiones",
+      "Movilidad de tobillo — 15 por lado",
+      "Flow general 2 minutos"
+    ],
+    "cardio_facil": [
+      "Caminadora inclinación 2% — 10–15 min",
+      "Elíptica suave — 10–15 min",
+      "Bicicleta suave — 10–15 min"
+    ],
+    "cardio_medio": [
+      "Caminadora 4% — 15 min",
+      "Elíptica media — 15 min",
+      "Bicicleta media — 15 min"
+    ],
+    "cardio_intenso": [
+      "HIIT 1 min rápido / 1 min lento × 10",
+      "Elíptica HIIT 30s/60s × 10",
+      "Bici HIIT 20s/40s × 10"
+    ],
+    "fuerza_upper_empuje": [
+      "Press banca máquina — 4×10",
+      "Press inclinado mancuernas — 4×10",
+      "Press hombro máquina — 3×12",
+      "Aperturas — 3×12",
+      "Fondos asistidos — 3×10",
+      "Extensión tríceps polea — 3×15"
+    ],
+    "fuerza_upper_tiron": [
+      "Remo sentado — 4×12",
+      "Jalón al pecho — 4×12",
+      "Remo mancuerna — 3×12/lado",
+      "Facepull — 3×15",
+      "Curl bíceps — 3×12",
+      "Curl martillo — 3×12"
+    ],
+    "fuerza_lower_a": [
+      "Prensa — 4×12",
+      "Curl femoral — 4×12",
+      "Glúteo máquina — 4×12",
+      "Abducción — 4×20",
+      "Elevación de talones — 3×15"
+    ],
+    "fuerza_lower_b": [
+      "Extensión de cadera — 4×15",
+      "Peso muerto rumano — 4×12",
+      "Step-up bajo — 3×12/lado",
+      "Aducción/abducción — 4×20",
+      "Glúteo máquina — 4×12"
+    ],
+    "core": [
+      "Plancha — 3×40s",
+      "Crunch máquina — 3×15",
+      "Elevación de piernas — 3×12",
+      "Pallof press — 3×12/lado",
+      "Russian twist — 3×20"
+    ],
+    "estiramientos": [
+      "Estiramiento cuello — 20s/lado",
+      "Estiramiento pecho — 25s",
+      "Estiramiento espalda — 25s",
+      "Estiramiento cadera — 25s/lado",
+      "Isquios — 25s/lado",
+      "Cuádriceps — 25s/lado"
+    ]
+  },
+
+  "days": [
+    {
+      "id": 1,
+      "name": "Día 1 — Full Body A (Gabo & Kathy)",
+      "phase": "adaptacion",
+      "trainingBlocks": [
+        "movilidad",
+        "cardio_medio",
+        "fuerza_lower_a",
+        "fuerza_upper_empuje",
+        "core",
+        "estiramientos"
+      ],
+      "trainingGabo": {
+        "key": "fuerza_lower_a",
+        "title": "Full Body A — Enfoque Pierna + Empuje (Gabo)"
+      },
+      "trainingKathy": {
+        "key": "fuerza_lower_a",
+        "title": "Full Body A — Enfoque Pierna + Empuje (Katherine)"
+      },
+
+      "nutritionGabo": {
+        "focus": "Alta proteína, porciones moderadas, inicio suave de la semana.",
+        "calories": 2200,
+        "portions": { "protein": 6, "carbs": 3, "fats": 3, "veggies": 4, "fruits": 2, "dairy": 1 },
+        "wheyTiming": "1 scoop después del entrenamiento.",
+        "meals": [
+          { "name": "Desayuno", "text": "Omelette de 3 huevos + fruta." },
+          { "name": "Snack AM", "text": "Yogurt griego + almendras." },
+          { "name": "Almuerzo", "text": "Pollo a la plancha + 1 taza arroz + verduras." },
+          { "name": "Snack PM", "text": "Fruta." },
+          { "name": "Cena", "text": "Pescado + vegetales." },
+          { "name": "Post entrenamiento", "text": "1 scoop de proteína." }
+        ]
+      },
+
+      "nutritionKathy": {
+        "focus": "Balanceado 1800 kcal con proteína suficiente para adaptación.",
+        "calories": 1800,
+        "portions": { "protein": 4, "carbs": 3, "fats": 3, "veggies": 4, "fruits": 2, "dairy": 1 },
+        "wheyTiming": "1/2 scoop opcional.",
+        "meals": [
+          { "name": "Desayuno", "text": "2 huevos + fruta + 1 tostada." },
+          { "name": "Snack AM", "text": "Yogurt descremado." },
+          { "name": "Almuerzo", "text": "Pechuga de pollo + 1/3 taza arroz + ensalada." },
+          { "name": "Snack PM", "text": "Fruta." },
+          { "name": "Cena", "text": "Tilapia + vegetales." },
+          { "name": "Post entrenamiento", "text": "1/2 scoop si entrenó." }
+        ]
+      }
+    },
+
+    {
+      "id": 2,
+      "name": "Día 2 — Full Body B (Gabo & Kathy)",
+      "phase": "adaptacion",
+      "trainingBlocks": [
+        "movilidad",
+        "cardio_medio",
+        "fuerza_lower_b",
+        "fuerza_upper_tiron",
+        "core",
+        "estiramientos"
+      ],
+      "trainingGabo": {
+        "key": "fuerza_lower_b",
+        "title": "Full Body B — Glúteo + Espalda (Gabo)"
+      },
+      "trainingKathy": {
+        "key": "fuerza_lower_b",
+        "title": "Full Body B — Glúteo + Espalda (Katherine)"
+      },
+
+      "nutritionGabo": {
+        "focus": "Día de pierna, proteína y carbo moderado.",
+        "calories": 2200,
+        "portions": { "protein": 6, "carbs": 3, "fats": 3, "veggies": 4, "fruits": 2, "dairy": 1 },
+        "wheyTiming": "Proteína después de pierna.",
+        "meals": [
+          { "name": "Desayuno", "text": "Huevos + tostada + fruta." },
+          { "name": "Snack AM", "text": "Batido proteína." },
+          { "name": "Almuerzo", "text": "Pollo + arroz + ensalada." },
+          { "name": "Snack PM", "text": "Fruta o nueces." },
+          { "name": "Cena", "text": "Carne magra + vegetales." },
+          { "name": "Post entrenamiento", "text": "Proteína." }
+        ]
+      },
+
+      "nutritionKathy": {
+        "focus": "Balanceado para soportar pierna ligera.",
+        "calories": 1800,
+        "portions": { "protein": 4, "carbs": 3, "fats": 3, "veggies": 4, "fruits": 2, "dairy": 1 },
+        "wheyTiming": "1/2 scoop si está fatigada.",
+        "meals": [
+          { "name": "Desayuno", "text": "Avena + fruta + 1 huevo." },
+          { "name": "Snack AM", "text": "Fruta o yogurt." },
+          { "name": "Almuerzo", "text": "Pavo + ensalada + 1/3 arroz." },
+          { "name": "Snack PM", "text": "Galletas de arroz." },
+          { "name": "Cena", "text": "Pescado + ensalada." },
+          { "name": "Post entrenamiento", "text": "1/2 scoop opcional." }
+        ]
+      }
+    },
+
+    {
+      "id": 3,
+      "name": "Día 3 — Full Body C (Gabo & Kathy)",
+      "phase": "adaptacion",
+      "trainingBlocks": [
+        "movilidad",
+        "cardio_medio",
+        "fuerza_upper_empuje",
+        "fuerza_lower_a",
+        "core",
+        "estiramientos"
+      ],
+      "trainingGabo": {
+        "key": "fuerza_upper_empuje",
+        "title": "Full Body C — Enfoque Superior (Gabo)"
+      },
+      "trainingKathy": {
+        "key": "fuerza_upper_empuje",
+        "title": "Full Body C — Enfoque Superior (Katherine)"
+      },
+
+      "nutritionGabo": {
+        "focus": "Adaptación + estímulo de espalda y bíceps.",
+        "calories": 2200,
+        "portions": { "protein": 6, "carbs": 3, "fats": 3, "veggies": 4, "fruits": 2, "dairy": 1 },
+        "meals": [
+          { "name": "Desayuno", "text": "Omelette + fruta." },
+          { "name": "Snack AM", "text": "Proteína." },
+          { "name": "Almuerzo", "text": "Res magra + arroz + ensalada." },
+          { "name": "Snack PM", "text": "Fruta." },
+          { "name": "Cena", "text": "Pescado + vegetales." }
+        ],
+        "wheyTiming": "1 scoop post-entreno."
+      },
+
+      "nutritionKathy": {
+        "focus": "Balanceado 1800kcal.",
+        "calories": 1800,
+        "portions": { "protein": 4, "carbs": 3, "fats": 3, "veggies": 4, "fruits": 2, "dairy": 1 },
+        "meals": [
+          { "name": "Desayuno", "text": "2 huevos + fruta." },
+          { "name": "Snack AM", "text": "Yogurt descremado." },
+          { "name": "Almuerzo", "text": "Pechuga + ensalada + 1/3 arroz." },
+          { "name": "Snack PM", "text": "Fruta o galletas de arroz." },
+          { "name": "Cena", "text": "Tilapia + vegetales." }
+        ],
+        "wheyTiming": "1/2 scoop opcional."
+      }
+    }
+  ]
+}

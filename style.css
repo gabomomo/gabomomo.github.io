@@ -1,0 +1,1231 @@
+/* =========== RESET BÁSICO =========== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #151a24 0, #050711 55%, #020308 100%);
+  color: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========== VARIABLES =========== */
+
+:root {
+  --bg-main: #05060c;
+  --bg-soft: #0b1017;
+  --bg-card: #121824;
+  --bg-card-soft: #161f2d;
+  --bg-chip: #1c2432;
+
+  --accent: #c9ff3b; /* lime */
+  --accent-soft: rgba(201, 255, 59, 0.12);
+  --accent-strong: #dcff66;
+
+  --danger: #fb7185;
+  --warning: #facc15;
+  --muted: #9ca3af;
+
+  --radius-xl: 22px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 18px 45px rgba(0, 0, 0, 0.75);
+}
+
+/* =========== CONTENEDOR GENERAL =========== */
+
+.app-shell {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 16px 82px; /* espacio para tabs abajo */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========== TOP BAR =========== */
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1f2937, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9fafb;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.8);
+}
+
+.top-hello {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-hello span:first-child {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.top-hello span:last-child {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #f9fafb;
+  box-shadow: 0 0 0 1px rgba(31, 41, 55, 0.9);
+}
+
+/* =========== CARDS GENERALES =========== */
+
+.card {
+  background: radial-gradient(circle at top left, #192132 0, #090c14 55%);
+  border-radius: var(--radius-xl);
+  padding: 16px 16px 18px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(201, 255, 59, 0.08),
+    transparent 50%
+  );
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Card principal resumen */
+
+.card-primary {
+  background: radial-gradient(circle at top left, #192a33 0, #050713 52%);
+  border-radius: 26px;
+  padding: 18px 18px 20px;
+}
+
+.card-primary::before {
+  background: radial-gradient(
+    circle at top right,
+    rgba(201, 255, 59, 0.18),
+    transparent 55%
+  );
+}
+
+/* Subtítulos / etiquetas */
+
+.sub-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--warning);
+}
+
+/* =========== PROGRESO DEL DÍA EN LA CARD PRIMARY =========== */
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.day-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.day-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fefce8;
+}
+
+.day-focus {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.day-meta {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.day-meta strong {
+  color: var(--accent-strong);
+}
+
+/* círculo pequeño de porcentaje (si quisieras usarlo en el futuro) */
+.day-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* =========== BARRAS DE PROGRESO =========== */
+
+.progress-wrapper-main {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #22c55e, #c9ff3b);
+  box-shadow: 0 0 10px rgba(100, 255, 170, 0.55);
+  transition: width 0.22s ease-out;
+}
+
+.progress-percent-main {
+  font-size: 0.78rem;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* barra de Gym */
+
+#trainingProgressFill {
+  background: linear-gradient(90deg, #22c55e, #a3e635);
+}
+
+/* =========== ESTADO DEL DÍA =========== */
+
+#dayStatusLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+}
+
+/* =========== BOTONES =========== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  padding: 7px 14px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #020617;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(190, 242, 100, 0.35);
+}
+
+.btn-outline {
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #fb7185, #f97316);
+  color: #020617;
+}
+
+/* botón cerrar día */
+
+#btnCloseDay {
+  margin-top: 10px;
+  float: right;
+}
+
+/* =========== BLOQUES INTERNOS (NUTRICIÓN, ENTRENAMIENTO, ETC.) =========== */
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.section-header-row h2,
+.section-header-row .card-title {
+  margin: 0;
+}
+
+.section-subtitle {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* Listas de texto */
+
+#portionTargets {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: rgba(209, 213, 219, 0.93);
+}
+
+#portionTargets li + li {
+  margin-top: 3px;
+}
+
+/* Meals (plan del día) */
+
+.meal-block {
+  background: var(--bg-chip);
+  border-radius: 16px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(55, 65, 81, 0.7);
+}
+
+.meal-block h3 {
+  margin: 0 0 3px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.meal-block p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* =========== EJERCICIO / CHECKBOXES =========== */
+
+.exercise-mode {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.exercise-mode-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.exercise-mode-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.exercise-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  font-size: 0.78rem;
+  cursor: pointer;
+  user-select: none;
+  color: #e5e7eb;
+}
+
+.exercise-checkbox input {
+  display: none;
+}
+
+.exercise-checkbox .checkmark {
+  width: 14px;
+  height: 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: #020617;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.exercise-checkbox input:checked + .checkmark {
+  background: linear-gradient(135deg, #22c55e, #c9ff3b);
+  border-color: #c9ff3b;
+}
+
+.exercise-checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 3px;
+  background: #020617;
+}
+
+.exercise-checkbox span:last-child {
+  position: relative;
+  top: 0;
+}
+
+/* Toggle "No hice ejercicio" */
+
+.toggle-label {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(31, 41, 55, 0.95);
+  border-radius: 999px;
+  transition: 0.2s;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  transition: 0.2s;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #f97316, #fb7185);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(19px);
+}
+
+/* Bloque de Gym */
+
+.training-content {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(55, 65, 81, 0.7);
+}
+
+.training-content.training-hidden {
+  display: none;
+}
+
+.training-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #facc15;
+  margin-bottom: 4px;
+}
+
+.training-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+}
+
+.training-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: rgba(229, 231, 235, 0.95);
+  margin-bottom: 4px;
+}
+
+.training-list input[type="checkbox"] {
+  accent-color: #22c55e;
+}
+
+/* =========== AGUA / INPUTS / TEXTAREAS =========== */
+
+input[type="number"],
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 14px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  color: #e5e7eb;
+  padding: 7px 10px;
+  font-size: 0.8rem;
+  outline: none;
+  transition: border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201, 255, 59, 0.35);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+#waterInfo {
+  margin-top: 4px;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+/* =========== TABS INFERIORES (MODO APP) =========== */
+
+.bottom-tabs {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  padding: 0 18px;
+  z-index: 50;
+}
+
+.bottom-tabs-inner {
+  max-width: 750px;
+  margin: 0 auto;
+  background: rgba(9, 10, 18, 0.98);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab-button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.7rem;
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+}
+
+.tab-button span.tab-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.tab-button.active {
+  color: #f9fafb;
+}
+
+.tab-button.active span.tab-icon {
+  background: var(--accent-soft);
+}
+
+/* =========== TABS CONTENIDO =========== */
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* =========== PROGRESO (TAB PROGRESO) =========== */
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.progress-row .progress-label {
+  width: 36px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.progress-track {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  overflow: hidden;
+}
+
+.progress-track .progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #22c55e, #c9ff3b);
+}
+
+.progress-row .progress-percent {
+  width: 40px;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+/* =========== PERFIL =========== */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.profile-grid .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profile-grid label {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+#monthStatusText {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+#weightDiffText {
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+/* =========== RESPONSIVE =========== */
+
+@media (min-width: 768px) {
+  .app-shell {
+    padding: 22px 22px 90px;
+  }
+
+  .layout-two-col {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+/* Grid de pastillas de Gym */
+.gym-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .gym-pill-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Contenedor de cada bloque (pill + lista) */
+.gym-pill-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* La pill en sí */
+.gym-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #111827;
+  background: rgba(15, 23, 42, 0.85);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, transform 0.08s ease;
+}
+
+/* Ocultar checkbox nativo */
+.gym-pill input[type="checkbox"] {
+  display: none;
+}
+
+/* Circulito a la izquierda */
+.gym-pill-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid #4b5563;
+  box-shadow: 0 0 0 1px #020617;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.gym-pill-text {
+  font-size: 0.9rem;
+}
+
+/* Hover */
+.gym-pill:hover {
+  border-color: #1f2937;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Estado completado */
+.gym-pill-done .gym-pill {
+  border-color: #22c55e;
+  background: radial-gradient(circle at top left, #064e3b, #020617);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
+}
+
+.gym-pill-done .gym-pill-circle {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5);
+}
+
+.gym-pill-done .gym-pill-circle::after {
+  content: "";
+  position: absolute;
+}
+
+/* Lista de ejercicios debajo de cada bloque */
+.exercise-sublist {
+  margin: 0 0 0.1rem 1.1rem;
+  padding-left: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #e5e7eb;
+}
+
+.exercise-sublist li + li {
+  margin-top: 0.1rem;
+}
+
+/* Contenedor de cada comida */
+.meal-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid #111827;
+  background: rgba(15, 23, 42, 0.9);
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0.35rem;
+  transition: background 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, transform 0.08s ease;
+}
+
+/* escondemos el checkbox nativo */
+.meal-row input[type="checkbox"] {
+  display: none;
+}
+
+/* circulito a la izquierda */
+.meal-bullet {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid #4b5563;
+  box-shadow: 0 0 0 1px #020617;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+/* texto de la comida */
+.meal-text {
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+/* hover */
+.meal-row:hover {
+  border-color: #1f2937;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.75);
+  transform: translateY(-1px);
+}
+
+/* estado completado */
+.meal-row-done {
+  border-color: #22c55e;
+  background: radial-gradient(circle at top left, #064e3b, #020617);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.35);
+}
+
+.meal-row-done .meal-bullet {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.6);
+}
+
+#closeDayButton.btn-close {
+  background: rgba(120, 20, 20, 0.3);
+  border: 1px solid rgba(255, 80, 80, 0.5);
+}
+
+#closeDayButton.btn-reopen {
+  background: rgba(20, 120, 20, 0.2);
+  border: 1px solid rgba(50, 255, 120, 0.5);
+}
+
+/* Botón Cerrar día (rojo) */
+#btnCloseDay.btn-close {
+  background: rgba(220, 38, 38, 0.18); /* rojo suave */
+  border: 1px solid rgba(220, 38, 38, 0.45);
+  color: #fca5a5;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.25);
+  transition: 0.2s ease;
+}
+
+#btnCloseDay.btn-close:hover {
+  background: rgba(239, 68, 68, 0.30);
+  border-color: rgba(239, 68, 68, 0.75);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.45);
+}
+
+/* Botón Reabrir día (verde) */
+#btnCloseDay.btn-reopen {
+  background: rgba(16, 185, 129, 0.18); /* verde suave */
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #6ee7b7;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+  transition: 0.2s ease;
+}
+
+#btnCloseDay.btn-reopen:hover {
+  background: rgba(52, 211, 153, 0.30);
+  border-color: rgba(52, 211, 153, 0.75);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.45);
+}
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 30 días */
+  gap: 8px;
+  padding: 1rem 0.5rem;
+}
+
+.month-day-box {
+  height: 32px;
+  border-radius: 8px;
+  background: #1a1f2b;
+  border: 1px solid #232937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  transition: all .25s ease;
+}
+
+.month-day-box:hover {
+  transform: scale(1.08);
+  border-color: #3b82f6;
+}
+
+.month-day-box.done {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border-color: #059669;
+}
+
+.month-day-box.partial {
+  background: linear-gradient(135deg, #4b5563, #6b7280);
+  color: #f3f4f6;
+  border-color: #6b7280;
+}
+
+.month-day-box.zero {
+  opacity: 0.4;
+}
+
+/* Grid de círculos del mes */
+.month-circle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 0.75rem;
+  padding: 0.9rem 0.4rem 0.4rem;
+}
+
+/* Contenedor de cada día */
+.month-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Círculo mini con progreso usando conic-gradient */
+.month-circle-inner {
+  --pct: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: #e5e7eb;
+
+  /* anillo exterior */
+  background:
+    radial-gradient(circle at center, #020617 58%, transparent 59%),
+    conic-gradient(
+      #22c55e calc(var(--pct) * 1%),
+      #111827 0
+    );
+  box-shadow: 0 0 0 1px #020617;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+/* número de día en el centro */
+.month-circle-day {
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+/* porcentaje pequeño debajo */
+.month-circle-pct {
+  font-size: 0.55rem;
+  opacity: 0.75;
+}
+
+/* hover general */
+.month-circle-inner:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 12px rgba(15, 23, 42, 0.9);
+}
+
+/* estados: 0%, parcial, 100% */
+
+.month-circle.zero .month-circle-inner {
+  background:
+    radial-gradient(circle at center, #020617 58%, transparent 59%),
+    conic-gradient(#1f2937 100%, #111827 0);
+  color: #6b7280;
+  opacity: 0.7;
+}
+
+.month-circle.partial .month-circle-inner {
+  /* ya usa el conic-gradient con --pct, solo damos un glow suave */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
+}
+
+.month-circle.full .month-circle-inner {
+  background:
+    radial-gradient(circle at center, #022c22 58%, transparent 59%),
+    conic-gradient(#22c55e 100%, #166534 0);
+  color: #bbf7d0;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.6);
+}
+
+.month-box-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.month-day-box.current-day {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+}
+.month-day-summary {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(31, 41, 55, 0.7);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.month-day-summary-placeholder {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Layout: círculo + texto a la derecha */
+.month-day-summary-layout {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.month-day-circle-wrapper {
+  flex-shrink: 0;
+}
+
+/* Círculo de progreso tipo dashboard */
+.summary-circle {
+  --pct: 0;
+  width: 82px;
+  height: 82px;
+  border-radius: 999px;
+  position: relative;
+  background:
+    radial-gradient(circle at center, #020617 60%, transparent 61%),
+    conic-gradient(
+      #22c55e calc(var(--pct) * 1%),
+      #1f2937 0
+    );
+  box-shadow: 0 0 0 1px #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-circle-inner {
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-circle-percent {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.month-day-summary {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(31, 41, 55, 0.7);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.month-day-summary-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Versión centrada cuando no hay datos */
+.month-day-summary-empty {
+  align-items: center;
+  text-align: center;
+}
+
+.month-day-summary-placeholder {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Header */
+.month-day-summary-header-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.month-day-summary-header-center {
+  align-items: center;
+}
+
+.month-day-summary-title {
+  font-weight: 500;
+}
+
+/* Badge estado */
+.month-day-summary-status {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.month-day-summary-status.open {
+  color: #facc15;
+  border-color: rgba(250, 204, 21, 0.6);
+}
+
+.month-day-summary-status.closed {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.6);
+}
+
+.month-day-summary-status.not-started {
+  color: #9ca3af;
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+/* Fila de círculos centrados */
+.month-day-circles-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-items: flex-start;
+  justify-content: center;   /* 👈 centramos todo el grupo */
+}
+
+/* Cada círculo + textos en columna centrada */
+.month-day-circle-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Círculo */
+.summary-circle {
+  --pct: 0;
+  width: 82px;
+  height: 82px;
+  border-radius: 999px;
+  position: relative;
+  background:
+    radial-gradient(circle at center, #020617 60%, transparent 61%),
+    conic-gradient(
+      #22c55e calc(var(--pct) * 1%),
+      #1f2937 0
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-circle-inner {
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-circle-percent {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.circle-label {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.circle-sub {
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
