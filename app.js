@@ -8,7 +8,7 @@
   - Soporta 2 usuarios: gabo y kathy.
   - Guarda progreso diario en localStorage por usuario y día.
 */
-
+console.log("Firebase conectado:", firebase.apps.length > 0);
 const STORAGE_STATE = "plan30_state_v3";
 const STORAGE_ACTIVE_USER = "plan30_activeUser";
 
